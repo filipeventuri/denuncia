@@ -1,0 +1,67 @@
+<%- include ("../../partials/header") %>
+<%- include ("../../partials/navbar") %>
+<div class="container">
+    <hr>
+    <div class="card">
+        <form method="post" action="/Reports/update">
+        <div class="card-header">
+            <input class="form-control" type="text" name="title" value="<%= Report.title %>">
+        </div>
+        <div class="card-body">
+                <textarea class="form-control" name="body" id="Report" ></textarea>
+                <br>
+                <label>Categoria</label>
+                <br>
+                <select class="form-control" name="category">
+                    <% categories.forEach((category)=>{ %>
+                        <% if(category.id == Report.categoryId){ %>
+                        <option value="<%= category.id %>" selected><%= category.title %></option>
+                        <% }else{ %>
+                        <option value="<%= category.id %>"><%= category.title %></option>
+                        <% } %>
+                        
+                    <% }) %>
+                </select>
+                <br>
+                <button class="btn btn-success">Atualizar</button>
+            
+        </div>
+        <input type="hidden" name="id" value="<%= Report.id %>">
+    </form>
+    </div>
+</div>
+
+<div id="content" style="display: none;">
+    <%- Report.body %>
+</div>
+<%- include ("../../partials/footer.ejs") %>
+<script src="/tinymce/js/tinymce/tinymce.min.js"></script>
+<script>
+    tinymce.init({
+        selector: "#Report",
+        plugins: [
+            'advlist', 
+            'autolink', 
+            'link', 
+            'image', 
+            'lists', 
+            'print', 
+            'preview', 
+            'hr', 
+            'searchreplace', 
+            'wordcount', 
+            'fullscreen', 
+            'insertdatetime', 
+            'media', 
+            'save', 
+            'table', 
+            'paste', 
+            'emoticons'
+        ],
+        language: 'pt_BR',
+        init_instance_callback: () =>{ //essa função é puxada instantâneamente quando a rota é acessada, assim renderizando o artigo dentro do text area
+            tinymce.get("Report").setContent($("#content").html()) //utilizei jquery pra selecionar a div com id content 
+            
+        }
+    })
+</script>

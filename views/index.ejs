@@ -1,0 +1,44 @@
+<%- include ("partials/header.ejs") %>
+<%- include ("partials/homenavbar.ejs")%>
+    <div class="container mt-5">
+        <br>
+        <div class="jumbotron" style="background-color:#2C2C2C; color:#FFF;">
+            <h1 class="display-4">Olá, Cidadão!</h1>
+            <p class="lead">Denuncie o Descarte Impróprio de Resíduos Sólidos</p>
+            <hr class="my-4">
+            <p>O descarte incorreto de resíduos sólidos é um problema sério que afeta a saúde pública, polui o meio ambiente e compromete o futuro de todos nós. Para combater essa prática e promover um planeta mais limpo e sustentável, sua ajuda é fundamental. 
+                
+                Se você presenciou ou tem conhecimento de locais onde o descarte inadequado de lixo está ocorrendo, faça a diferença! Denunciar é um ato de responsabilidade e cuidado com o nosso meio ambiente. Juntos, podemos transformar nossas cidades em lugares mais seguros e sustentáveis para as próximas gerações.
+                
+                Clique no botão abaixo e faça sua denúncia de forma rápida, segura e anônima. Cada ação conta!
+                
+                Vamos cuidar do nosso planeta. Comece agora!</p>
+            <p class="lead">
+              <a class="btn btn-lg" style="background-color: #D9B44A; color:#FFF;" href="/login" role="button">DENUNCIAR</a>
+            </p>
+          </div>
+        <% Reports.forEach((one)=>{ %>
+        <br>
+        <div class="card mb-3" style="background-color:#2C2C2C; color:#FFF;">
+            <div class="card-header">
+                <h2><%= one.title %></h2>
+
+            </div>
+            <div class="card-body" style="background-color:#424242;">
+                <a class="btn btn-primary"  href="/<%=one.slug%>">Visualizar descrição</a>
+            </div>
+            <div class="card-footer">
+                <%= one.location %>
+            </div>
+        </div>
+        <% }) %>
+        <br>
+        <div class="row" >
+            
+            <div class="col col-12"><a href="/Reports/page/2" style="float:right;"><i class="bi bi-arrow-right-square-fill">Next</i></a></div>
+        </div>
+        <br>
+        <br>
+    </div>
+
+<%- include ("partials/footer.ejs") %>

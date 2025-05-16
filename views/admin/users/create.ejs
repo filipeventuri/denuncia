@@ -1,0 +1,24 @@
+<%- include ("../../partials/header.ejs") %>
+<%- include ("../../partials/navbar.ejs")%>
+
+<div class="container">
+    <div class="card mt-5 mb-5">
+        <div class="card-header">
+            <h2>Cadastro de Usuário</h2>
+        </div>
+        <div id="search" class="card-body">
+            <form method="post" action="/users/create">
+                <input class="form-control mb-3 " type="email" name="email" placeholder="Seu Email">
+                <input class="form-control mb-3 " type="password" name="password" placeholder="Sua Senha">
+                <input class="form-control mb-3 " type="cep" name="cep" placeholder="CEP">
+                <input class="form-control mb-3 " type="logradouro" name="logradouro" placeholder="Logradouro">
+                <input class="form-control mb-3 " type="bairro" name="bairro" placeholder="Bairro">
+                <input class="form-control mb-3 " type="cidade" name="cidade" placeholder="Cidade">
+                <input class="form-control mb-3 " type="estado" name="estado" placeholder="Estado">
+                <button class="btn btn-success btn-block mb-3">Cadastrar</button>
+            </form>
+        </div>
+    </div>
+</div >
+
+<%- include ("../../partials/footer.ejs") %>

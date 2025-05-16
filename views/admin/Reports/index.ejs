@@ -1,0 +1,50 @@
+<%- include ("../../partials/header") %>
+<%- include ("../../partials/navbar") %>
+<div class="container">
+    <hr>
+    <h2>Denúncias</h2>
+    <br>
+    <a class="btn btn-success" href="/admin/Reports/new">Cadastrar denúncia</a>
+    <hr>
+    
+   
+    <table class="table table-bordered">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Título</th>
+                <th>Categoria</th>
+                <th>Ações</th>
+            </tr>
+        </thead>
+        <% Reports.forEach(one=>{ %>
+    <tbody> 
+        
+            <th><%= one.id %></th>
+            <th><%= one.title %></th>
+            <th><%= one.category.title %></th>
+            <th>
+            <a class="btn btn-warning" href="/admin/Reports/edit/<%= one.id %>" >Editar</a>
+            <form method="POST" action="/Reports/delete" style="display: inline;" onsubmit="sure(event,this)">
+            <input type="hidden" name="id" value="<%= one.id %>">
+            <button class="btn btn-danger">Remover</button>
+            </form>
+            </th>
+    
+            
+    </tbody>
+    <% }) %>   
+    </table>
+</div>
+<%- include ("../../partials/footer.ejs") %>
+<script>
+    function sure(event,form){
+        event.preventDefault();
+        var confirmacao = confirm("Você deseja deletar esse Artigo?") 
+        if(confirmacao){
+            form.submit();
+        }
+
+    }
+
+</script>

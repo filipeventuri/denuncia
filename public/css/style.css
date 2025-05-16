@@ -1,0 +1,15 @@
+.logo{
+    font-family: 'Roboto Mono', monospace;
+}
+
+body {
+    
+    margin-bottom: 15vh;
+}
+
+
+.footer{
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+}

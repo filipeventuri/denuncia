@@ -1,0 +1,23 @@
+<%- include ("../../partials/header.ejs") %>
+<%- include ("../../partials/homenavbar.ejs")%>
+
+<div class="container">
+    <div class="card mt-5 mb-5">
+        <div class="card-header">
+            <h2>Login</h2>
+        </div>
+        <div class="card-body">
+            <form method="post" action="/authenticate">
+                <input class="form-control mb-3" type="email" name="email" placeholder="Seu Email">
+                <input class="form-control mb-3 " type="password" name="password" placeholder="Sua Senha">
+                <button class="btn btn-success btn-block mb-3">Acessar</button>
+                
+            </form>
+            <a class="btn btn-primary" style="width: 100%;" href="/admin/users/create">Cadastrar</a>
+        </div>
+        
+    </div>
+    
+</div>
+
+<%- include ("../../partials/footer.ejs") %>

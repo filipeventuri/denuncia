@@ -1,0 +1,22 @@
+<nav class="navbar navbar-dark navbar-expand-md" style="background-color:#2C2C2C">
+    <a class="navbar-brand logo fs-3 ms-3" href="/">ECO VIGILANCE</a>
+    
+
+
+<button class="navbar-toggler" type="button" data-bs-toggle="collapse " data-bs-target='#btn' >
+<i class='bx bx-menu'></i>
+</button>
+
+<div class=" collapse navbar-collapse " id="btn">
+    <ul class="navbar-nav ms-auto">
+        <% categories.forEach(categories=>{ %>
+            <li class="nav-item">
+                <a class="nav-link mx-2" href="/categories/<%= categories.slug %>"><%= categories.title %></a>
+            </li>
+        <% }) %>
+        
+        </ul>
+        
+</div>
+
+</nav>
